@@ -1,5 +1,23 @@
 # Fractalfy
-Wrapper for Fractal
+Laravel Wrapper for Fractal
+
+## Usage
+
+### Step 1: Install Through Composer
+
+```
+composer require hesto/fractalfy
+```
+
+### Step 2: Register Service Provider
+Add your new provider to the `providers` array of `config/app.php`:
+```php
+  'providers' => [
+      // ...
+      Hesto\Fractalfy\FractalfyServiceProvider::class,
+      // ...
+  ],
+```
 
 ## Fractal methods
 Use Fractalfy class or FractalfyController
