@@ -34,7 +34,7 @@ Return resource with pagination
 ```php
 $users = Users::all();
 return $this->fractal
-    ->paginate($dashboards, new DashboardTransformer)
+    ->paginate($users, new UserTransformer)
     ->get();
 ```
 
