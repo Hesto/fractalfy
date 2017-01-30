@@ -20,7 +20,13 @@ Add your new provider to the `providers` array of `config/app.php`:
 ```
 
 ## Fractal methods
-Use Fractalfy class or FractalfyController
+Extend your controller with FractalfyController
+```php
+class DashboardController extends FractalfyController
+{
+    ...
+}
+```
 
 Return collection
 ```php
@@ -39,7 +45,7 @@ return $this->fractal
 ```
 
 ## Fractalfy Helpers
-Use Fractalfy Helpers
+Use Fractalfy Helpers (already included in FractalfyController)
 
 Popular
 ```php

@@ -42,11 +42,9 @@ trait Helpers
      * @param $message
      * @return $this
      */
-    public function setMessage($message = null)
+    public function setMessage($message)
     {
-        if ($message == null) {
-            $this->message = SymfonyResponse::$statusTexts[$this->getStatusCode()];
-        }
+        $this->message = $message;
 
         return $this;
     }
@@ -117,7 +115,11 @@ trait Helpers
     public function respondWithSuccess($statusCode = null)
     {
         if($statusCode != null) {
-            $this->setStatusCode($statusCode)->setMessage();
+            $this->setStatusCode($statusCode);
+        }
+
+        if ($this->message == null) {
+            $this->message = SymfonyResponse::$statusTexts[$this->getStatusCode()];
         }
 
         return $this->respond([
@@ -132,7 +134,11 @@ trait Helpers
     public function respondWithError($statusCode = null)
     {
         if($statusCode != null) {
-            $this->setStatusCode($statusCode)->setMessage();
+            $this->setStatusCode($statusCode);
+        }
+
+        if ($this->message == null) {
+            $this->message = SymfonyResponse::$statusTexts[$this->getStatusCode()];
         }
 
         return $this->respond([
